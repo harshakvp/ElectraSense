@@ -1,4 +1,4 @@
-# ElectraSense - Embedded Single-Phase Electrical Parameter Monitoring System
+# ElectraSense
 
 [![Stars](https://img.shields.io/github/stars/harshakvp/ElectraSense?style=flat-square\&label=stars)](https://github.com/harshakvp/ElectraSense/stargazers)
 [![Forks](https://img.shields.io/github/forks/harshakvp/ElectraSense?style=flat-square\&label=forks)](https://github.com/harshakvp/ElectraSense/forks)
@@ -6,16 +6,23 @@
 [![Contributors](https://img.shields.io/github/contributors/harshakvp/ElectraSense?style=flat-square\&label=contributors)](https://github.com/harshakvp/ElectraSense/graphs/contributors)
 ![Last Commit](https://img.shields.io/github/last-commit/harshakvp/ElectraSense?style=flat-square\&label=last%20commit)
 ![Repo Size](https://img.shields.io/github/repo-size/harshakvp/ElectraSense?style=flat-square\&label=repo%20size)
-![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=harshakvp.ElectraSense)
 
-A low-cost **ESP32-based embedded electrical parameter monitoring system** for real-time monitoring of **single-phase AC loads**. The system measures voltage and current, digitally computes electrical parameters such as active power, apparent power, reactive power, power factor, and energy, while providing **local display, SD card logging, and wireless mobile dashboard monitoring**.
+### ESP32-Based Single-Phase Electrical Parameter Monitoring System
 
-This project was developed as part of my undergraduate research work in embedded systems and electrical instrumentation.
+A low-cost embedded electrical parameter monitoring system designed for real-time monitoring of single-phase AC loads. The system measures voltage and current, digitally computes electrical parameters such as active power, apparent power, reactive power, power factor, and energy, while providing **local display**, **CSV data logging**, and **wireless monitoring through a mobile dashboard**.
 
 ---
 
-# Features
+## Final Hardware Prototype
+
+<p align="center">
+  <img src="https://github.com/harshakvp/ElectraSense/blob/4ba940f4cd0535999c348c3f413413b537562d21/Figures/ElectraSense.png">
+</p>
+
+---
+
+## Features
 
 * Real-time voltage and current measurement
 * Digital computation of:
@@ -37,13 +44,13 @@ This project was developed as part of my undergraduate research work in embedded
 
 ---
 
-# System Overview
+## System Architecture
 
 <p align="center">
-  <img src="Documents/Figures/SystemArchitecture.png" alt="System Architecture" width="100%">
+  <img src="https://github.com/harshakvp/ElectraSense/blob/207b9e60bdb26d97e3e4c87cfee03c23c833002d/Figures/System%20Architecture.png">
 </p>
 
-The system consists of three major functional blocks:
+The system consists of three primary functional blocks:
 
 * **Sensing Unit**
 
@@ -56,163 +63,148 @@ The system consists of three major functional blocks:
   * Signal acquisition
   * Electrical parameter computation
 
-* **Human Machine Interface**
+* **Output & User Interface**
 
   * 16×2 LCD Display
-  * Push Buttons
   * Micro SD Card Logging
   * Wi-Fi Dashboard
+  * Push Buttons
   * Status LEDs
 
 ---
 
-# Hardware
+## Circuit Diagram
 
-## Components Used
+<p align="center">
+  <img src="https://github.com/harshakvp/ElectraSense/blob/207b9e60bdb26d97e3e4c87cfee03c23c833002d/Figures/Schematic%20Diagram.png">
+</p>
 
-| Component              | Purpose                             |
-| ---------------------- | ----------------------------------- |
-| ESP32 DevKit           | Main processing unit                |
-| ZMPT101B               | AC Voltage sensing                  |
-| ACS712                 | AC Current sensing                  |
-| 16×2 LCD (I2C)         | Local parameter display             |
-| Micro SD Card Module   | CSV data logging                    |
-| Push Buttons           | User navigation and logging control |
-| LEDs                   | Power and logging indication        |
-| Plug & Socket Assembly | Compact deployment                  |
+The hardware consists of an ESP32 microcontroller interfaced with a ZMPT101B voltage sensor, ACS712 current sensor, 16×2 I²C LCD display, Micro SD card module, push buttons, and status LEDs. The analog outputs of the sensing modules are sampled using the ESP32 ADC, while SPI and I²C interfaces are used for peripheral communication.
 
 ---
 
-# Working Principle
+## Hardware Components
 
-The system continuously samples the analog outputs of the voltage and current sensors using the ESP32's ADC.
-
-From the acquired samples, the firmware computes:
-
-* RMS Voltage
-* RMS Current
-* Active Power
-* Apparent Power
-* Reactive Power
-* Power Factor
-* Energy
-
-The computed parameters are simultaneously:
-
-* Displayed on the LCD
-* Logged to a Micro SD card (CSV format)
-* Transmitted to a mobile dashboard over Wi-Fi
+| Component            | Purpose                        |
+| -------------------- | ------------------------------ |
+| ESP32 DevKit         | Main processing unit           |
+| ZMPT101B             | AC voltage sensing             |
+| ACS712               | AC current sensing             |
+| 16×2 LCD (I²C)       | Local parameter display        |
+| Micro SD Card Module | CSV data logging               |
+| Push Buttons         | Navigation and logging control |
+| LEDs                 | Power and logging indication   |
 
 ---
 
-# Repository Structure
+## Working Principle
 
-```text
-ElectraSense/
-│
-├── Firmware/
-│   ├── ElectraSense.ino
-│   └── Libraries/
-│
-├── Hardware/
-│   ├── Circuit_Schematic/
-│   ├── Wiring_Diagram/
-│   └── Images/
-│
-├── Documents/
-│   ├── Conference_Paper.pdf
-│   ├── Figures/
-│   └── Validation/
-│
-├── MobileDashboard/
-│
-├── Images/
-│
-└── README.md
-```
+1. The voltage and current sensors continuously acquire the AC voltage and current waveforms.
+2. The ESP32 samples the analog signals using its ADC.
+3. The firmware computes:
+
+   * RMS Voltage
+   * RMS Current
+   * Active Power
+   * Apparent Power
+   * Reactive Power
+   * Power Factor
+   * Energy Consumption
+4. The computed parameters are:
+
+   * Displayed on the LCD
+   * Logged to a Micro SD card in CSV format
+   * Transmitted wirelessly to a mobile dashboard
+5. The process repeats continuously to provide real-time monitoring.
 
 ---
 
-# Validation
+## Experimental Validation
 
-The prototype was experimentally validated using a **step-adjustable 5 A resistive load bank**.
+The developed prototype was experimentally validated using a **5 A step-adjustable resistive load bank**.
 
 Reference instruments used:
 
 * Digital Multimeter (Voltage)
 * Digital Clamp Meter (Current)
 
-Experimental results showed:
+Measured performance:
 
-* Voltage Error: **1.7104%**
-* Current Error: **2.0952%**
+| Parameter | Percentage Error |
+| --------- | ---------------: |
+| Voltage   |     **1.7104 %** |
+| Current   |     **2.0952 %** |
 
-indicating acceptable accuracy for low-cost educational and laboratory monitoring applications.
+The obtained results demonstrate acceptable accuracy for educational, laboratory, and low-cost electrical monitoring applications.
 
 ---
 
-# Future Improvements
+## Future Improvements
 
 * Relay-based appliance ON/OFF control
 * Threshold-based load management
-* Cloud database integration
+* Cloud data storage
 * Historical data visualization
-* Remote firmware updates (OTA)
-* Three-phase system support
-* Improved sensor calibration
-* Enhanced power quality analysis
+* Over-the-Air (OTA) firmware updates
+* Three-phase electrical monitoring
+* Enhanced sensor calibration
+* Power quality analysis
 
 ---
 
-# Tools Used
+## Repository Structure
+
+```text
+ElectraSense/
+│
+├── Figures/
+│   ├── Prototype.png
+│   ├── Circuit Diagram.png
+│   └── ElectraSense.png
+│
+├── Firmware/
+│   └── ESP32 Firmware.ino
+│
+└── README.md
+```
+
+---
+
+## Tools Used
 
 * Arduino IDE
 * ESP32 Arduino Framework
 * Embedded C++
-* EasyEDA / KiCad (if applicable)
-* Microsoft Excel
 * Git
 * GitHub
 
 ---
 
-# Documentation
+## Author
 
-The repository includes:
-
-* Firmware source code
-* Circuit schematic
-* Wiring diagram
-* Hardware images
-* Experimental validation setup
-* CSV sample logs
-* Conference paper
-* System architecture figures
-
----
-
-# Author
-
-## Harshak V P
+### Harshak V P
 
 Electrical and Electronics Engineering Undergraduate
 Vellore Institute of Technology (VIT), Vellore
 
-### Connect
+#### Areas of Interest
 
-* GitHub: https://github.com/harshakvp
-* LinkedIn: https://www.linkedin.com/in/harshakvp/
-* Portfolio: https://harshakvp.dev
-* Email: [harshakvp.contact@gmail.com](mailto:harshakvp.contact@gmail.com)
+* Embedded Systems
+* Power Electronics
+* Electric Drives
+* PCB Design
+* Internet of Things (IoT)
+* Machine Learning Applications in Engineering
+
+#### Connect
+
+* **GitHub:** [harshakvp](https://github.com/harshakvp)
+* **LinkedIn:** [Harshak V P](https://www.linkedin.com/in/harshakvp/)
+* **Portfolio:** [harshakvp.dev](https://chain-science-5eb.notion.site/HARSHAK-V-P-4f4889ae8ebf4c05a5790637c39213ba)
+* **Email:** [harshakvp.contact@gmail.com](mailto:harshakvp.contact@gmail.com)
+
+Feel free to open an issue, suggest improvements, or reach out if you have any questions or feedback regarding this project.
 
 ---
 
-# Citation
-
-If you use this project in your work, please consider citing the accompanying conference paper or linking to this repository.
-
----
-
-## License
-
-This project is intended for educational, research, and open-source hardware development purposes. Feel free to explore, modify, and build upon this work with appropriate attribution.
+This repository is maintained as part of my learning journey in embedded systems, electrical instrumentation, IoT, and hardware development. Feel free to explore the project, review the implementation, and use it as a reference for similar embedded monitoring applications.
