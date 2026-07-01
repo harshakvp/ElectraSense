@@ -18,8 +18,8 @@
 #include <math.h>
 
 /* Wi-Fi credentials */
-char ssid[] = "Harshak";
-char pass[] = "harshak@2476";
+char ssid[] = "<YOUR_SSID>";
+char pass[] = "<YOUR_PASSWORD";
 
 /* LCD */
 LiquidCrystal_I2C lcd(0x27, 16, 2);
