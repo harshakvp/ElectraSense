@@ -19,7 +19,7 @@
 
 /* Wi-Fi credentials */
 char ssid[] = "<YOUR_SSID>";
-char pass[] = "<YOUR_PASSWORD";
+char pass[] = "<YOUR_PASSWORD>";
 
 /* LCD */
 LiquidCrystal_I2C lcd(0x27, 16, 2);
