@@ -1,11 +1,11 @@
 # ElectraSense
 
-[![Stars](https://img.shields.io/github/stars/harshakvp/ElectraSense?style=flat-square\&label=stars)](https://github.com/harshakvp/ElectraSense/stargazers)
-[![Forks](https://img.shields.io/github/forks/harshakvp/ElectraSense?style=flat-square\&label=forks)](https://github.com/harshakvp/ElectraSense/forks)
-[![Watchers](https://img.shields.io/github/watchers/harshakvp/ElectraSense?style=flat-square\&label=watchers)](https://github.com/harshakvp/ElectraSense/watchers)
-[![Contributors](https://img.shields.io/github/contributors/harshakvp/ElectraSense?style=flat-square\&label=contributors)](https://github.com/harshakvp/ElectraSense/graphs/contributors)
-![Last Commit](https://img.shields.io/github/last-commit/harshakvp/ElectraSense?style=flat-square\&label=last%20commit)
-![Repo Size](https://img.shields.io/github/repo-size/harshakvp/ElectraSense?style=flat-square\&label=repo%20size)
+[![Stars](https://img.shields.io/github/stars/harshakvp/ElectraSense?style=flat-square&label=Stars)](https://github.com/harshakvp/ElectraSense/stargazers)
+[![Forks](https://img.shields.io/github/forks/harshakvp/ElectraSense?style=flat-square&label=Forks)](https://github.com/harshakvp/ElectraSense/network/members)
+[![Watchers](https://img.shields.io/github/watchers/harshakvp/ElectraSense?style=flat-square&label=Watchers)](https://github.com/harshakvp/ElectraSense/watchers)
+[![Contributors](https://img.shields.io/github/contributors/harshakvp/ElectraSense?style=flat-square&label=Contributors)](https://github.com/harshakvp/ElectraSense/graphs/contributors)
+![Last Commit](https://img.shields.io/github/last-commit/harshakvp/ElectraSense?style=flat-square&label=Last%20Commit)
+![Repo Size](https://img.shields.io/github/repo-size/harshakvp/ElectraSense?style=flat-square&label=Repo%20Size)
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=harshakvp.ElectraSense)
 
 ### ESP32-Based Single-Phase Electrical Parameter Monitoring System
@@ -85,15 +85,15 @@ The hardware consists of an ESP32 microcontroller interfaced with a ZMPT101B vol
 
 ## Hardware Components
 
-| Component            | Purpose                        |
-| -------------------- | ------------------------------ |
-| ESP32 DevKit         | Main processing unit           |
-| ZMPT101B             | AC voltage sensing             |
-| ACS712               | AC current sensing             |
-| 16×2 LCD (I²C)       | Local parameter display        |
-| Micro SD Card Module | CSV data logging               |
-| Push Buttons         | Navigation and logging control |
-| LEDs                 | Power and logging indication   |
+| Component | Purpose |
+|-----------|---------|
+| ESP32 DevKit | Main processing unit |
+| ZMPT101B | AC voltage sensing |
+| ACS712 | AC current sensing |
+| 16×2 LCD (I²C) | Local parameter display |
+| Micro SD Card Module | CSV data logging |
+| Push Buttons | Navigation and logging control |
+| LEDs | Power and logging indication |
 
 ---
 
@@ -110,11 +110,13 @@ The hardware consists of an ESP32 microcontroller interfaced with a ZMPT101B vol
    * Reactive Power
    * Power Factor
    * Energy Consumption
+
 4. The computed parameters are:
 
    * Displayed on the LCD
    * Logged to a Micro SD card in CSV format
    * Transmitted wirelessly to a mobile dashboard
+
 5. The process repeats continuously to provide real-time monitoring.
 
 ---
@@ -131,9 +133,9 @@ Reference instruments used:
 Measured performance:
 
 | Parameter | Percentage Error |
-| --------- | ---------------: |
-| Voltage   |     **1.7104 %** |
-| Current   |     **2.0952 %** |
+|-----------|-----------------:|
+| Voltage | **1.7104 %** |
+| Current | **2.0952 %** |
 
 The obtained results demonstrate acceptable accuracy for educational, laboratory, and low-cost electrical monitoring applications.
 
@@ -184,7 +186,7 @@ ElectraSense/
 
 ### Harshak V P
 
-Electrical and Electronics Engineering Undergraduate
+Electrical and Electronics Engineering Undergraduate  
 Vellore Institute of Technology (VIT), Vellore
 
 #### Areas of Interest
